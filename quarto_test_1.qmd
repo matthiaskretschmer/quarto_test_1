@@ -1,0 +1,37 @@
+---
+title: "quarto_test_1"
+---
+
+## Graphics
+
+Packages needed
+
+```{r}
+#| echo: false
+
+library(tidyverse)
+library(mdsr)
+library(babynames)
+
+```
+
+Define data
+
+```{r}
+df_beatles <- babynames %>%
+  filter(name %in% c("John", "Paul", "George", "Ringo") & sex == "M") %>%
+  mutate(name = factor(name, levels = c("John", "George", "Paul", "Ringo")))
+
+
+```
+
+Plot
+
+```{r}
+
+beatles_plot <- df_beatles %>% 
+  ggplot(aes(x = year, y = n)) +
+  geom_line(aes(color = name), linewidth = 2)
+
+beatles_plot
+```
