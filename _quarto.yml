@@ -1,0 +1,5 @@
+project:
+  title: "quarto_test_1"
+  output-dir: docs
+editor: visual
+
