@@ -30,8 +30,10 @@ Plot
 ```{r}
 
 beatles_plot <- df_beatles %>% 
-  ggplot(aes(x = year, y = n)) +
-  geom_line(aes(color = name), linewidth = 2)
+  ggplot(aes(x = year, 
+             y = n)) +
+  geom_line(aes(color = name), linewidth = 2) +
+  scale_y_continuous(labels = scales::comma)
 
 beatles_plot
 ```
